@@ -94,9 +94,9 @@ window.addEventListener("showNavigator", function () {
     indexedElements.forEach((item) => {
         let title
         if(item.children.length > 0){
-            title = item.querySelector('h1, h2, h3, h4, h5, h6').innerHTML
+            title = item.querySelector('h1, h2, h3, h4, h5, h6').innerHTML.replace(/<[^>]*>?/gm, ' ')
         }else{
-            title = item.innerHTML
+            title = item.innerHTML.replace(/<[^>]*>?/gm, ' ')
         }
 
         const listElem = document.createElement('li')
