@@ -213,6 +213,10 @@ a:hover{
     filter: brightness(0.7);
 }
 
+.bg video {
+    pointer-events: none;
+}
+
 .hero h1 {
     animation: animated-h1 6s ease infinite;
     animation-direction: alternate;
