@@ -2,6 +2,7 @@ let indexedElements = document.querySelectorAll('*[data-indexed="true"]');
 let i = 0
 
 let selectedIndex = -1
+let currentlyViewing = -1
 
 indexedElements.forEach((elem) => {
     const attr = document.createAttribute("navigator-index")
@@ -82,7 +83,7 @@ window.addEventListener("showNavigator", function () {
 
     const note = document.createElement('span')
     note.classList.add('note', 'hide-on-phone')
-    note.innerHTML = 'Tip: Használd a Space billentyűt a menü megnyitásához!'
+    note.innerHTML = 'Tip: Használd a "Space", vagy a "Tab" billentyűt a menü megnyitásához!'
     overlay.appendChild(note)
 
     const itemsContainer = document.createElement('ul')
@@ -93,9 +94,9 @@ window.addEventListener("showNavigator", function () {
 
     indexedElements.forEach((item) => {
         let title
-        if(item.children.length > 0){
+        if (item.children.length > 0) {
             title = item.querySelector('h1, h2, h3, h4, h5, h6').innerHTML.replace(/<[^>]*>?/gm, ' ')
-        }else{
+        } else {
             title = item.innerHTML.replace(/<[^>]*>?/gm, ' ')
         }
 
@@ -108,11 +109,11 @@ window.addEventListener("showNavigator", function () {
         link.addEventListener('click', () => {
             // if item is bigger than the screen, scroll to the top of it, otherwise scroll to the center
             // use scrollintoview
-            if(item.getBoundingClientRect().height > window.innerHeight){
-                item.scrollIntoView({behavior: "smooth", block: "start", inline: "nearest"})
+            if (item.getBoundingClientRect().height > window.innerHeight) {
+                item.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
             }
-            else{
-                item.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+            else {
+                item.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
             }
 
             overlay.remove()
@@ -127,4 +128,33 @@ window.addEventListener("showNavigator", function () {
     document.body.appendChild(overlay)
 
     itemsContainer.focus()
+
+    if (currentlyViewing !== -1) {
+        selectedIndex = currentlyViewing
+        selectElement(currentlyViewing)
+    }
 });
+
+
+// on scroll use IntersectionObserver to find out which element is currently taking up the most space
+// and update the currentlyViewing variable
+// if no element is intersecting, set currentlyViewing to -1
+
+const observer = new IntersectionObserver((entries) => {
+    if(document.documentElement.scrollTop === 0){
+        currentlyViewing = -1
+        return
+    }
+
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            currentlyViewing = entry.target.getAttribute('navigator-index')
+        }
+    })
+    console.log(currentlyViewing)
+}, { threshold: 1 })
+
+
+indexedElements.forEach((elem) => {
+    observer.observe(elem)
+})
