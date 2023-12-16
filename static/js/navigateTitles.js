@@ -151,7 +151,6 @@ const observer = new IntersectionObserver((entries) => {
             currentlyViewing = entry.target.getAttribute('navigator-index')
         }
     })
-    console.log(currentlyViewing)
 }, { threshold: 1 })
 
 
