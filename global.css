@@ -674,3 +674,21 @@ input:-ms-input-placeholder,
 textarea:-ms-input-placeholder {
     color: var(--secondary);
 }
+
+/* custom, slim scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary);
+}
+
