@@ -236,6 +236,7 @@ a:hover{
 
 .bg video {
     pointer-events: none;
+    width: 100%;
 }
 
 .hero h1 {
