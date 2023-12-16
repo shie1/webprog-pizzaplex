@@ -647,3 +647,8 @@ form input[type="submit"]:hover {
     color: var(--primary);
     animation: notification 4s ease;
 }
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--secondary);
+}
