@@ -71,6 +71,11 @@
     --header-height: 60vh;
 }
 
+html {
+    scroll-behavior: smooth;
+    color-scheme: dark;
+}
+
 h1 {
     margin: 0;
 }
