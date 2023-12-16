@@ -1,5 +1,5 @@
 document.addEventListener("keydown", function(event) {
-    if (event.ctrlKey && event.key === "k") {
+    if (event.key === " ") {
         event.preventDefault()
         const showNavigatorEvent = new CustomEvent("showNavigator");
         window.dispatchEvent(showNavigatorEvent);

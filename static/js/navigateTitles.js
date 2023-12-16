@@ -82,7 +82,7 @@ window.addEventListener("showNavigator", function () {
 
     const note = document.createElement('span')
     note.classList.add('note', 'hide-on-phone')
-    note.innerHTML = 'Tip: Használd a Ctrl + K kombinációt a menü megnyitásához!'
+    note.innerHTML = 'Tip: Használd a Space billentyűt a menü megnyitásához!'
     overlay.appendChild(note)
 
     const itemsContainer = document.createElement('ul')
