@@ -38,6 +38,7 @@
 }
 
 @keyframes notification {
+
     /* 0% hidden, 20-80% visible, 0% hidden */
     /* slide in from right */
     0% {
@@ -160,7 +161,7 @@ a {
     transition: all ease .2s;
 }
 
-a:hover{
+a:hover {
     color: var(--primary);
     text-shadow: 4px 4px 0 var(--accent);
 }
@@ -230,7 +231,7 @@ a:hover{
 }
 
 .hero>.bg {
-    background: url("static/images/hero.jpg") no-repeat center center/cover;
+    background: url("static/images/hero.webp") no-repeat center center/cover;
     filter: brightness(0.7);
 }
 
@@ -278,7 +279,7 @@ a:hover{
     }
 }
 
-.section:first-of-type::before{
+.section:first-of-type::before {
     background: unset;
 }
 
