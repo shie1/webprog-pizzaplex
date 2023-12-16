@@ -111,9 +111,11 @@ window.addEventListener("showNavigator", function () {
             // use scrollintoview
             if (item.getBoundingClientRect().height > window.innerHeight) {
                 item.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" })
+                currentlyViewing = item.getAttribute('navigator-index')
             }
             else {
                 item.scrollIntoView({ behavior: "smooth", block: "center", inline: "nearest" })
+                currentlyViewing = item.getAttribute('navigator-index')
             }
 
             overlay.remove()
