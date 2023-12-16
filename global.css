@@ -697,3 +697,9 @@ body {
     scrollbar-width: thin;
     scrollbar-color: var(--primary) var(--background);
 }
+
+/* selection */
+::selection {
+    background: var(--accent);
+    color: unset;
+}
