@@ -642,10 +642,14 @@ form input[type="submit"]:hover {
     gap: 2rem;
     z-index: 1000;
     padding: 1rem;
-    background: var(--background-light);
+    background: var(--secondary);
     font-size: 1.5rem;
     color: var(--primary);
     animation: notification 4s ease;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 1rem;
+    text-shadow: 4px 4px 0px var(--accent);
 }
 
 input::placeholder,
