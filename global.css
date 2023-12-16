@@ -692,3 +692,8 @@ textarea:-ms-input-placeholder {
     background: var(--secondary);
 }
 
+/* even if no scrollbar, reserve space */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--background);
+}
