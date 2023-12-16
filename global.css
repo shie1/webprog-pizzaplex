@@ -588,6 +588,11 @@ form {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
+    max-width: 100%;
+}
+
+label{
+    width: 100%;
 }
 
 @media screen and (max-width: 1200px) {
@@ -600,6 +605,7 @@ form div {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    width: 100%;
 }
 
 form input,
@@ -610,6 +616,7 @@ form textarea {
     border: 3px solid var(--secondary);
     background-color: var(--background-light);
     color: var(--primary);
+    width: 100%;
 }
 
 form input:focus,
@@ -662,6 +669,8 @@ form input[type="submit"]:hover {
 }
 
 input::placeholder,
-textarea::placeholder {
+textarea::placeholder,
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
     color: var(--secondary);
 }
