@@ -41,12 +41,10 @@ const keyHandler = (event) => {
         event.preventDefault()
         if (selectedIndex < i - 1) {
             selectedIndex++
-            console.log(selectedIndex)
             selectElement(selectedIndex)
         }
         else {
             selectedIndex = 0
-            console.log(selectedIndex)
             selectElement(selectedIndex)
         }
     }
@@ -107,6 +105,10 @@ window.addEventListener("showNavigator", function () {
         link.setAttributeNode(attr)
         link.innerText = title
         link.addEventListener('click', () => {
+            if(item.getAttribute('data-href')){
+                document.location.assign(item.getAttribute("data-href"))
+                return
+            }
             // if item is bigger than the screen, scroll to the top of it, otherwise scroll to the center
             // use scrollintoview
             if (item.getBoundingClientRect().height > window.innerHeight) {
